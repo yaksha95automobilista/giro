@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: giro-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_URL}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - giro_pgdata:/var/lib/postgresql/data
+
+volumes:
+  giro_pgdata:
